@@ -12,9 +12,9 @@ namespace DAL.Implementations
     {
         NorthWindContext _context;
 
-        public CategoryDALImpl(NorthWindContext context) : base(context)
+        public CategoryDALImpl(NorthWindContext context): base(context) 
         {
-            _context = context;
+            _context = context;        
         }
 
 

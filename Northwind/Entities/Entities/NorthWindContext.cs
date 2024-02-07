@@ -75,8 +75,6 @@ public partial class NorthWindContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.UseCollation("SQL_Latin1_General_CP1_CI_AS");
-
         modelBuilder.Entity<AlphabeticalListOfProduct>(entity =>
         {
             entity
