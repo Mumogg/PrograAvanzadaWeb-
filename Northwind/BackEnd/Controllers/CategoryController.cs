@@ -11,15 +11,17 @@ namespace BackEnd.Controllers
     public class CategoryController : ControllerBase
     {
         ICategoryService CategoryService;
-        public CategoryController(ICategoryService categoryService) 
+
+        public CategoryController(ICategoryService categoryService)
         {
             CategoryService = categoryService;
         }
+
         // GET: api/<CategoryController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<CategoryModel> Get()
         {
-            return new string[] { "value1", "value2" };
+            return CategoryService.GetCategories();
         }
 
         // GET api/<CategoryController>/5
@@ -48,3 +50,4 @@ namespace BackEnd.Controllers
         }
     }
 }
+

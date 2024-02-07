@@ -6,9 +6,11 @@ namespace BackEnd.Services.Interfaces
     public interface ICategoryService
     {
         IEnumerable<CategoryModel> GetCategories();
-        ICategoryService GetById(int id);
+        CategoryModel GetById(int id);
         bool AddCategory(CategoryModel category);
         bool UpdateCategory(CategoryModel category);
-        bool DeleteCategory(CategoryModel category);
+        bool DeteleCategory(CategoryModel category);
+
+
     }
 }

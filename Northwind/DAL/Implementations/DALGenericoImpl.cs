@@ -1,16 +1,16 @@
-﻿using System;
+﻿using DAL.Interfaces;
+using Entities.Entities;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using DAL.Interfaces;
-using Entities.Entities;
-using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Implementations
 {
-    internal class DALGenericoImpl<TEntity> : IDALGenerico<TEntity> where TEntity : class
+    public class DALGenericoImpl<TEntity> : IDALGenerico<TEntity> where TEntity : class
     {
 
         protected readonly NorthWindContext _Context;
@@ -19,7 +19,6 @@ namespace DAL.Implementations
         {
             _Context = northWindContext;
         }
-
 
         public bool Add(TEntity entity)
         {
@@ -47,11 +46,14 @@ namespace DAL.Implementations
 
         public IEnumerable<TEntity> GetAll()
         {
+
+
             return _Context.Set<TEntity>().ToList();
         }
 
         public bool Remove(TEntity entity)
         {
+
             try
             {
                 _Context.Set<TEntity>().Attach(entity);
@@ -67,6 +69,7 @@ namespace DAL.Implementations
 
         public bool Update(TEntity entity)
         {
+
             try
             {
                 _Context.Entry(entity).State = EntityState.Modified;

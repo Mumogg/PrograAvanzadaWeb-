@@ -1,25 +1,28 @@
-﻿using System;
+﻿using DAL.Interfaces;
+using Entities.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAL.Interfaces;
-using Entities.Entities;
-using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Implementations
 {
     public class UnidadDeTrabajo : IUnidadDeTrabajo
     {
+
+        public ICategoryDAL _categoryDAL { get; }
+
         private readonly NorthWindContext _context;
 
-        public ICategoryDAL _categoryDAL {  get; }
-
-        public UnidadDeTrabajo(NorthWindContext context, ICategoryDAL categoryDAL)
+        public UnidadDeTrabajo(NorthWindContext northWindContext,
+                                ICategoryDAL categoryDAL
+                                )
         {
-            _context = context;
+            _context = northWindContext;
             _categoryDAL = categoryDAL;
         }
+
 
         public bool Complete()
         {
