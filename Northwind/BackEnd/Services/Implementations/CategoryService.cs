@@ -15,7 +15,7 @@ namespace BackEnd.Services.Implementations
             _unidadDeTrabajo = unidadDeTrabajo;
         }
 
-
+      
 
         public bool AddCategory(CategoryModel category)
         {
@@ -52,7 +52,7 @@ namespace BackEnd.Services.Implementations
 
         public CategoryModel GetById(int id)
         {
-            var entity = _unidadDeTrabajo._categoryDAL.Get(id);
+           var entity = _unidadDeTrabajo._categoryDAL.Get(id);
 
             CategoryModel categoryModel = Convertir(entity);
             return categoryModel;
@@ -65,11 +65,11 @@ namespace BackEnd.Services.Implementations
             List<CategoryModel> lista = new List<CategoryModel>();
             foreach (var category in result)
             {
-                lista.Add(Convertir(category));
-
+                lista.Add(Convertir(category));                  
+                    
 
             }
-            return lista;
+           return lista;
         }
 
         public bool UpdateCategory(CategoryModel category)
